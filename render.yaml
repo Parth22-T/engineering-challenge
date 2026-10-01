@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: engineering-challenge
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    disk:
+      name: sqlite-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: 18.20.2
+      - key: DB_PATH
+        value: /data/database.sqlite
